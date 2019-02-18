@@ -27,7 +27,7 @@ A while loop is used.
 An if/else statement is nested in the else of a parent if/else statement.
 
 ***Complexity***
-The binary search has a time complexity of O(logn).
+The binary search has a time complexity of O(log(n)).
 
 */
 

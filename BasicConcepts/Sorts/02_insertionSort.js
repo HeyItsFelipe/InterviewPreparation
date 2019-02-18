@@ -5,6 +5,8 @@ The left side is assumed to be sorted and values are spliced in from the right s
 It is a good sort for almost sorted arrays.
 
 ***Psuedocode***
+input1:  array of values
+
 declare a spliced variable and set it to null
 for loop over array, but begin iterator i at index of 1
     for loop over array, begin at index of 0, and have condition where iterator j be less than i
