@@ -2,6 +2,8 @@
 
 A linked list is a data structure that you can add data node onto the end of the list.
 This is a simple implementation of a linked list.
+Linked lists have a constant time insertion and deletion as compared to arrays, which have
+a linear time insertion and deletion.
 
 ***Things To Note***
 Linked list data structure implementation can be divided into a node object and a linked list object.
