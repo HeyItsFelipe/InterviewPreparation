@@ -17,9 +17,12 @@ const oneAway = (string1, string2) => {
     let editTotal = 0;
     let i = 0;
     let j = 0;
+
     if (Math.abs(string1.length - string2.length) > 1) {
         return false;
     }
+
+    // if character was removed
     if (string1.length > string2.length) {
         while (i < string1.length && j < string2.length) {
             if (string1[i] !== string2[j]) {
@@ -32,7 +35,9 @@ const oneAway = (string1, string2) => {
             i++;
             j++;
         }
-    } else if (string1.length < string2.length) {
+    }
+    // if character was added 
+    else if (string1.length < string2.length) {
         while (i < string1.length && j < string2.length) {
             if (string1[i] !== string2[j]) {
                 editTotal++;
@@ -44,7 +49,9 @@ const oneAway = (string1, string2) => {
             i++;
             j++;
         }
-    } else {
+    }
+    // if character was replaced
+    else {
         while (i < string1.length && j < string2.length) {
             if (string1[i] !== string2[j]) {
                 editTotal++;
@@ -59,21 +66,56 @@ const oneAway = (string1, string2) => {
     return true;
 };
 
-console.log(oneAway('pale', 'ple'), true);
-console.log(oneAway('pales', 'ple'), false);
-console.log(oneAway('pale', 'bale'), true);
-console.log(oneAway('pale', 'bake'), false);
-console.log(oneAway('', ''), true);
-console.log(oneAway('pale', 'pxle'), true);
-console.log(oneAway('pale', 'pate'), true);
-console.log(oneAway('pale', 'pald'), true);
-console.log(oneAway('answer', 'answers'), true);
-console.log(oneAway('technology', 'etechnology'), true);
-console.log(oneAway('pale', 'pl'), false);
-console.log(oneAway('paless', 'pale'), false);
-console.log(oneAway('pale', 'bales'), false);
-console.log(oneAway('1122334455667788', '9911223344556677'), false);
-console.log(oneAway('45678', '1239'), false);
-console.log(oneAway('abcd', 'dcba'), false);
+const oneAway2 = (string1, string2) => {
+    if (Math.abs(string1.length - string2.length) > 1) {
+        return false;
+    }
+
+    // determines if character was removed, added, or replaced
+    var operation = string1.length - string2.length;
+
+    let i = 0;
+    let j = 0;
+    let editTotal = 0;
+
+    while (i < string1.length && j < string2.length) {
+        if (string1[i] !== string2[j]) {
+            editTotal++;
+
+            // if character was removed
+            if (operation === -1) {
+                j++;
+            }
+
+            // if character was added
+            if (operation === 1) {
+                j--;
+            }
+        }
+        if (editTotal > 1) {
+            return false;
+        }
+        i++;
+        j++;
+    }
+    return true;
+};
+
+console.log(oneAway2('pale', 'ple'), true);
+console.log(oneAway2('pales', 'ple'), false);
+console.log(oneAway2('pale', 'bale'), true);
+console.log(oneAway2('pale', 'bake'), false);
+console.log(oneAway2('', ''), true);
+console.log(oneAway2('pale', 'pxle'), true);
+console.log(oneAway2('pale', 'pate'), true);
+console.log(oneAway2('pale', 'pald'), true);
+console.log(oneAway2('answer', 'answers'), true);
+console.log(oneAway2('technology', 'etechnology'), true);
+console.log(oneAway2('pale', 'pl'), false);
+console.log(oneAway2('paless', 'pale'), false);
+console.log(oneAway2('pale', 'bales'), false);
+console.log(oneAway2('1122334455667788', '9911223344556677'), false);
+console.log(oneAway2('45678', '1239'), false);
+console.log(oneAway2('abcd', 'dcba'), false);
 
 
