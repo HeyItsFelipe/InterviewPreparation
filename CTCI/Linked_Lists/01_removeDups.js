@@ -15,7 +15,7 @@ class Node {
 
 class LinkedList {
 
-    constructor(value) {
+    constructor(value = null) {
         this.head = null;
         if (value !== null) {
             this.head = new Node(value);

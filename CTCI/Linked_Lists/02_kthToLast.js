@@ -13,7 +13,7 @@ class Node {
 
 class LinkedList {
 
-    constructor(value) {
+    constructor(value = null) {
         this.head = null;
         this.length = 0;
         if (value !== null) {
@@ -84,5 +84,5 @@ l.add(5);
 
 console.log(l);
 printLinkedList(l);
-console.log(kthToLast2(6, l));
+console.log(kthToLast2(2, l));
 printLinkedList(l);
